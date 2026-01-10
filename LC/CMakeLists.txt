@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.10)
 project(LC_Project)
 
+# Set the output directory for the executable
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../bin)
+
 set(CMAKE_CXX_STANDARD 17)
 
 if(BUILD_FOR_PETALINUX)
@@ -33,9 +36,6 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/Config
 )
 
-# Set the output directory for the executable
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
-
 # Define the executable and its source files
 add_executable(lc
     main.cpp
@@ -59,3 +59,7 @@ add_executable(lc
     # External library
     inih/ini.c
 )
+
+# 스레드 라이브러리 연결
+find_package(Threads REQUIRED)
+target_link_libraries(lc Threads::Threads)

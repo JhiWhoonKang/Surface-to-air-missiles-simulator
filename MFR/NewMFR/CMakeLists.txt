@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.10)
 project(MFR)
 
+# 실행 파일을 상위 bin 디렉토리에 저장
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../../bin)
+
 # Set the C++ standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
