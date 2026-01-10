@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="발사대UI">
+      <UniqueIdentifier>{39562f5c-e995-488e-bb95-eee205f8696f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="발사통제기UI">
+      <UniqueIdentifier>{c282fbb2-e346-448b-9bcf-bf599aefaade}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="표적UI">
+      <UniqueIdentifier>{936beaba-783f-4c17-9613-bbae1a19f42b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="미사일UI">
+      <UniqueIdentifier>{5f5b9a3a-ddf6-4e17-9e28-085dbf04aa59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TCP통신">
+      <UniqueIdentifier>{3021ad5d-77cb-4bc0-87ca-018606085753}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="체계구조체">
+      <UniqueIdentifier>{605eca31-f459-474b-9591-53aacdaf902d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="메시지구조체">
+      <UniqueIdentifier>{18e1706c-6b58-406b-b377-e4fb365fde79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="레이더UI">
+      <UniqueIdentifier>{faa15b58-a7f4-416b-92b0-a858abddcfeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="파싱">
+      <UniqueIdentifier>{5131d3eb-0b9d-4bb9-8e43-df841a4f4f8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="직렬화/역직렬화">
+      <UniqueIdentifier>{a3ceb413-a7f2-465b-a5b1-ebc8c0c5d7a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="메인 다이얼로그">
+      <UniqueIdentifier>{3e4a2796-e7fb-4cd6-8129-2afbffe36e0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{e34f6284-e1fa-4ab7-be28-107e1c2d9db8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SAMtest.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CLeftTopDlg.h">
+      <Filter>레이더UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CMFRModeSelectDlg.h">
+      <Filter>레이더UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CLSLaunchDlg.h">
+      <Filter>발사대UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CLSMoveDlg.h">
+      <Filter>발사대UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CLeftBottomDlg.h">
+      <Filter>발사대UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CLaunchControlDlg.h">
+      <Filter>발사통제기UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CTargetInfoDlg.h">
+      <Filter>표적UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CMissileInfoDlg.h">
+      <Filter>미사일UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ECC_TCP.h">
+      <Filter>TCP통신</Filter>
+    </ClInclude>
+    <ClInclude Include="MAP_TCP.h">
+      <Filter>TCP통신</Filter>
+    </ClInclude>
+    <ClInclude Include="LSStatus.h">
+      <Filter>체계구조체</Filter>
+    </ClInclude>
+    <ClInclude Include="LCStatus.h">
+      <Filter>체계구조체</Filter>
+    </ClInclude>
+    <ClInclude Include="TargetStatus.h">
+      <Filter>체계구조체</Filter>
+    </ClInclude>
+    <ClInclude Include="RadarStatus.h">
+      <Filter>체계구조체</Filter>
+    </ClInclude>
+    <ClInclude Include="MissileStatus.h">
+      <Filter>체계구조체</Filter>
+    </ClInclude>
+    <ClInclude Include="SendMessageTypes.h">
+      <Filter>메시지구조체</Filter>
+    </ClInclude>
+    <ClInclude Include="ReceiveMessageTypes.h">
+      <Filter>메시지구조체</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageCommon.h">
+      <Filter>메시지구조체</Filter>
+    </ClInclude>
+    <ClInclude Include="IReceiver.h">
+      <Filter>TCP통신</Filter>
+    </ClInclude>
+    <ClInclude Include="AckMessageTypes.h">
+      <Filter>메시지구조체</Filter>
+    </ClInclude>
+    <ClInclude Include="ParseStatusResponse.h">
+      <Filter>파싱</Filter>
+    </ClInclude>
+    <ClInclude Include="ParsedPacket.h">
+      <Filter>파싱</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketParser.h">
+      <Filter>파싱</Filter>
+    </ClInclude>
+    <ClInclude Include="Serializer.h">
+      <Filter>직렬화/역직렬화</Filter>
+    </ClInclude>
+    <ClInclude Include="Deserializer.h">
+      <Filter>직렬화/역직렬화</Filter>
+    </ClInclude>
+    <ClInclude Include="CRightPaneDlg.h">
+      <Filter>메인 다이얼로그</Filter>
+    </ClInclude>
+    <ClInclude Include="SAMtestDlg.h">
+      <Filter>메인 다이얼로그</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="CTargetListDlg.h">
+      <Filter>표적UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CMockTrack.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SAMtest.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CLeftTopDlg.cpp">
+      <Filter>레이더UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CMFRModeSelectDlg.cpp">
+      <Filter>레이더UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CLSLaunchDlg.cpp">
+      <Filter>발사대UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CLSMoveDlg.cpp">
+      <Filter>발사대UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CLeftBottomDlg.cpp">
+      <Filter>발사대UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CLaunchControlDlg.cpp">
+      <Filter>발사통제기UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CTargetInfoDlg.cpp">
+      <Filter>표적UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CMissileInfoDlg.cpp">
+      <Filter>미사일UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ECC_TCP.cpp">
+      <Filter>TCP통신</Filter>
+    </ClCompile>
+    <ClCompile Include="MAP_TCP.cpp">
+      <Filter>TCP통신</Filter>
+    </ClCompile>
+    <ClCompile Include="ParseStatusResponse.cpp">
+      <Filter>파싱</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketParser.cpp">
+      <Filter>파싱</Filter>
+    </ClCompile>
+    <ClCompile Include="Serializer.cpp">
+      <Filter>직렬화/역직렬화</Filter>
+    </ClCompile>
+    <ClCompile Include="Deserializer.cpp">
+      <Filter>직렬화/역직렬화</Filter>
+    </ClCompile>
+    <ClCompile Include="SAMtestDlg.cpp">
+      <Filter>메인 다이얼로그</Filter>
+    </ClCompile>
+    <ClCompile Include="CRightPaneDlg.cpp">
+      <Filter>메인 다이얼로그</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="CTargetListDlg.cpp">
+      <Filter>표적UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CMockTrack.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SAMtest.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\SAMtest.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ECCconfig.ini">
+      <Filter>Config</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\SAMtest.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

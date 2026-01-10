@@ -1,0 +1,97 @@
+# ----------------------------------------------------------------------
+# 1. Visual Studio (IDE) 관련 파일
+# ----------------------------------------------------------------------
+# 사용자별 옵션 설정 파일 (절대 커밋하면 안 됨)
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+
+# 인텔리센스 및 탐색 데이터
+*.suo
+*.opensdf
+*.sdf
+*.db
+*.opendb
+*.vc.db
+
+# ----------------------------------------------------------------------
+# 2. C++ 빌드 결과물 (Visual Studio)
+# ----------------------------------------------------------------------
+# 디버그/릴리즈 빌드 폴더
+Debug/
+Release/
+x64/
+x86/
+[Bb]uild/
+
+# 컴파일된 바이너리 및 중간 파일
+*.obj
+*.pdb
+*.ipdb
+*.iobj
+*.idb
+*.ilk
+*.exe
+*.dll
+*.lib
+*.sbr
+*.tlog
+
+# ----------------------------------------------------------------------
+# 3. Visual Studio Code 관련 파일
+# ----------------------------------------------------------------------
+# VS Code 설정 폴더
+# (팀 프로젝트 규칙에 따라 .vscode 폴더 전체를 제외하거나, settings.json만 제외하기도 함)
+.vscode/
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# VS Code C/C++ Extension 캐시
+.vscode/ipch/
+
+# ----------------------------------------------------------------------
+# 4. 기타 / OS 관련
+# ----------------------------------------------------------------------
+# Windows 썸네일 캐시
+Thumbs.db
+ehthumbs.db
+
+# Mac OS 폴더 설정
+.DS_Store
+
+# ----------------------------------------------------------------------
+# 5. CMake (사용하는 경우)
+# ----------------------------------------------------------------------
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# ----------------------------------------------------------------------
+# 6. CMake & Build Output
+# ----------------------------------------------------------------------
+# CMake가 생성하는 캐시 및 설정 파일 (In-source build 방지용)
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+CPackConfig.cmake
+CPackSourceConfig.cmake
+
+# Visual Studio가 CMake 프로젝트용으로 만드는 기본 출력 폴더
+out/
+
+# 일반적인 빌드 폴더 이름 (터미널이나 VS Code에서 보통 build 폴더를 만듦)
+build/
+Build/
+bin/
+lib/
+
+# Ninja 빌드 시스템 (CMake가 자주 사용)
+build.ninja
+.ninja_deps
+.ninja_log

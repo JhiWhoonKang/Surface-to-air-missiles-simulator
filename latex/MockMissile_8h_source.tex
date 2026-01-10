@@ -1,0 +1,24 @@
+\doxysection{Mock\+Missile.\+h}
+\hypertarget{MockMissile_8h_source}{}\label{MockMissile_8h_source}\index{Simulator/Mock/MockMissile.h@{Simulator/Mock/MockMissile.h}}
+\mbox{\hyperlink{MockMissile_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MissileInfo_8h}{MissileInfo.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MFRSendUDPManager_8h}{MFRSendUDPManager.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMockMissile}{MockMissile}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00008\ \ \ \ \ \mbox{\hyperlink{classMockMissile}{MockMissile}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structMissileInfo}{MissileInfo}}\ \&missile\_info,\ std::shared\_ptr<MFRSendUDPManager>\ mfr\_send\_manager);}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{classMockMissile_aacd9cccbcd43f26176e9573425f6a288}{\string~MockMissile}}()\ \{\}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMockMissile_a1c4ec3f6ff5a378e7f6c67de158121aa}{updatePosMissile}}();}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{structMissileInfo}{MissileInfo}}\ missile\_info\_;}
+\DoxyCodeLine{00015\ \ \ \ \ std::shared\_ptr<MFRSendUDPManager>\ mfr\_send\_manager\_;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ sendData();}
+\DoxyCodeLine{00018\ \};}
+
+\end{DoxyCode}

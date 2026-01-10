@@ -1,0 +1,33 @@
+\doxysection{Simulator.\+h}
+\hypertarget{Simulator_8h_source}{}\label{Simulator_8h_source}\index{Simulator/Simulator/Simulator.h@{Simulator/Simulator/Simulator.h}}
+\mbox{\hyperlink{Simulator_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LSRecvUDPManager_8h}{LSRecvUDPManager.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MFRSendUDPManager_8h}{MFRSendUDPManager.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MockTargetManager_8h}{MockTargetManager.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MockMissileManager_8h}{MockMissileManager.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSimulator}{Simulator}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ std::unique\_ptr<LSRecvUDPManager>\ ls\_recv\_manager\_;}
+\DoxyCodeLine{00013\ \ \ \ \ std::shared\_ptr<MFRSendUDPManager>\ mfr\_send\_manager\_;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ std::shared\_ptr<MockTargetManager>\ mock\_target\_manager\_;}
+\DoxyCodeLine{00016\ \ \ \ \ std::unique\_ptr<MockMissileManager>\ mock\_missile\_manager\_;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ std::thread\ recv\_thread\_;}
+\DoxyCodeLine{00019\ \ \ \ \ std::thread\ flight\_target\_thread\_;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classSimulator_a031573bfcfe2e0f5c9539bcc1c7fc5d9}{Simulator}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classSimulator_a0f49aa04f42060a785adf77346b9de9f}{\string~Simulator}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSimulator_a6cba6e9d24c7228666ce92364cdad10d}{init}}();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSimulator_a19ae9be7b29172cd470f843d16deae7c}{start}}();}
+\DoxyCodeLine{00027\ \};}
+
+\end{DoxyCode}

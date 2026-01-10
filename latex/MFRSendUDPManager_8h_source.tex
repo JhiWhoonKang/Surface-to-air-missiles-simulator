@@ -1,0 +1,30 @@
+\doxysection{MFRSend\+UDPManager.\+h}
+\hypertarget{MFRSendUDPManager_8h_source}{}\label{MFRSendUDPManager_8h_source}\index{Simulator/UDPCommunicate/MFRSendUDPManager.h@{Simulator/UDPCommunicate/MFRSendUDPManager.h}}
+\mbox{\hyperlink{MFRSendUDPManager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MFR\_SEND\_UDP\_MANAGER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MFR\_SEND\_UDP\_MANAGER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <arpa/inet.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMFRSendUDPManager}{MFRSendUDPManager}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ mfr\_socket\_;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{struct\ }sockaddr\_in\ client\_addr\_;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classMFRSendUDPManager_ab61824ff2d40d6220047bce6331a51a0}{MFRSendUDPManager}}(\textcolor{comment}{/*\ args\ */});}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classMFRSendUDPManager_a106b25c02a78efdf88b821fbd2056deb}{\string~MFRSendUDPManager}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMFRSendUDPManager_abe7f2466d25c3ef93556c97b60c80b53}{MFRSocketOpen}}(\textcolor{keyword}{const}\ std::string\ \&ip,\ \textcolor{keywordtype}{int}\ port);}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMFRSendUDPManager_a19bd9b7c6c4e68556267fc906f20fdd8}{sendData}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *data,\ \textcolor{keywordtype}{int}\ dataSize);}
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MFR\_SEND\_UDP\_MANAGER\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,31 @@
+\doxysection{Mock\+Target\+Manager.\+h}
+\hypertarget{MockTargetManager_8h_source}{}\label{MockTargetManager_8h_source}\index{Simulator/Mock/MockTargetManager.h@{Simulator/Mock/MockTargetManager.h}}
+\mbox{\hyperlink{MockTargetManager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MOCK\_TARGET\_MANAGER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MOCK\_TARGET\_MANAGER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MockTarget_8h}{MockTarget.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{TargetInfo_8h}{TargetInfo.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MFRSendUDPManager_8h}{MFRSendUDPManager.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMockTargetManager}{MockTargetManager}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classMockTargetManager}{MockTargetManager}}(std::shared\_ptr<MFRSendUDPManager>\ mfr\_send\_manager);}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMockTargetManager_af513a324e980f22c15caaaa47e7907a7}{RaedTargetIni}}();}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMockTargetManager_a7ab62ca1a15da7771d5f501e561da856}{addTarget}}(std::shared\_ptr<MockTarget>\ \&target);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMockTargetManager_ad7d676df14de549f97449f5a362429fd}{flitghtTarget}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ std::vector<std::shared\_ptr<MockTarget>>\ targets;}
+\DoxyCodeLine{00022\ \ \ \ \ std::shared\_ptr<MFRSendUDPManager>\ mfr\_send\_manager\_;}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

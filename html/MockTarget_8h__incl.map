@@ -1,0 +1,22 @@
+<map id="Simulator/Mock/MockTarget.h" name="Simulator/Mock/MockTarget.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="97,5,311,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="192,152,251,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,30,220,78,224,138,219,138,215,79,205,32"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="128,79,205,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="200,32,181,68,177,65,195,30"/>
+<area shape="rect" id="Node000004" href="$TargetInfo_8h.html" title=" " alt="" coords="5,79,104,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="181,33,93,75,90,70,179,28"/>
+<area shape="rect" id="Node000006" href="$MFRSendUDPManager_8h.html" title=" " alt="" coords="320,79,499,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="238,28,364,72,362,77,236,33"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="21,152,88,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="57,104,57,138,52,138,52,104"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="380,107,264,150,263,145,378,102"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="491,152,571,177"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="430,102,501,143,498,147,427,106"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="595,152,661,177"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="445,101,582,146,580,151,444,107"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="275,152,367,177"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="397,106,348,145,345,141,394,102"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="392,152,467,177"/>
+<area shape="poly" id="edge10_Node000006_Node000010" title=" " alt="" coords="415,104,425,138,420,140,410,105"/>
+</map>

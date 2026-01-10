@@ -1,0 +1,45 @@
+\doxysection{LSRecv\+UDPManager.\+h}
+\hypertarget{LSRecvUDPManager_8h_source}{}\label{LSRecvUDPManager_8h_source}\index{Simulator/UDPCommunicate/LSRecvUDPManager.h@{Simulator/UDPCommunicate/LSRecvUDPManager.h}}
+\mbox{\hyperlink{LSRecvUDPManager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LS\_RECV\_UDP\_MANAGER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LS\_RECV\_UDP\_MANAGER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <arpa/inet.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <sys/socket.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <netinet/in.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <fcntl.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <errno.h>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLSRecvUDPManager}{LSRecvUDPManager}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classLSRecvUDPManager_a10da30f03d2f503be4dfbee684bb2489}{LSRecvUDPManager}}();}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classLSRecvUDPManager_a25903a707e2ceb493778b37e6ae95d8d}{\string~LSRecvUDPManager}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ Initialize\ the\ UDP\ socket}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLSRecvUDPManager_a0ce2bf36553b04889edde3ba7cb54bf3}{LSSocketOpen}}(\textcolor{keywordtype}{int}\ port);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ Receive\ data\ from\ the\ socket}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLSRecvUDPManager_a1f625c1c1014d36b04ef018e9b0d1589}{receiveData}}(\textcolor{keywordtype}{char}\ *buffer,\ \textcolor{keywordtype}{int}\ bufferSize);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ Close\ the\ socket}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLSRecvUDPManager_aa3ed96d558ef15f7117d34d2516eb530}{closeSocket}}();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ ls\_socket\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Socket\ file\ descriptor}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{struct\ }sockaddr\_in\ server\_addr\_;\ \textcolor{comment}{//\ Server\ address\ structure}}
+\DoxyCodeLine{00032\ \ \ \ \ socklen\_t\ addr\_len\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Length\ of\ the\ address\ structure}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{char}\ buffer\_[1024];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Buffer\ for\ receiving\ data}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ buffer\_size\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Size\ of\ the\ buffer}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ recv\_len\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Length\ of\ the\ received\ data}}
+\DoxyCodeLine{00036\ \ \ \ \ std::thread\ recv\_thread\_;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Thread\ for\ receiving\ data}}
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LS\_RECV\_UDP\_MANAGER\_H}}
+
+\end{DoxyCode}

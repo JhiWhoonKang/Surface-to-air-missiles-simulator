@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CSAMtestApp" Collapsed="true">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>SAMtest.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLeftBottomDlg" Collapsed="true">
+    <Position X="3" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBQAEBAAEgAAgAABAAAADDAEAQIAAAAAAYAAAICAA=</HashCode>
+      <FileName>CLeftBottomDlg.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLSLaunchDlg" Collapsed="true">
+    <Position X="4.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABSAEAAgAIAAAAMFAAAAAAAAAAoAAAAEAAAkAAAAA=</HashCode>
+      <FileName>CLSLaunchDlg.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLSMoveDlg" Collapsed="true">
+    <Position X="4.75" Y="2.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="CLSMoveDlg::__unnamed_enum_040b_1" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>CLSMoveDlg.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIBAAAAAQAAQAIACAAGAAAUAAAAA=</HashCode>
+      <FileName>CLSMoveDlg.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLaunchControlDlg" Collapsed="true">
+    <Position X="10.5" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AACWAAAABAAIAEAAABAAAAAAAAAAAAEAAAAAAAAABAA=</HashCode>
+      <FileName>CLaunchControlDlg.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTargetInfoDlg" Collapsed="true">
+    <Position X="12.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAABAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CTargetInfoDlg.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMissileInfoDlg" Collapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IACSSgBAAAAIAABBABIDAAAAABAAAAAAAAAIAAAAAAI=</HashCode>
+      <FileName>CMissileInfoDlg.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECC_TCP" Collapsed="true">
+    <Position X="1" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAACAAAAQgAAgAAAAAAAAAAgAQAAkgAQAAAAggA=</HashCode>
+      <FileName>ECC_TCP.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IReceiver" Collapsed="true">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>IReceiver.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAP_TCP" Collapsed="true">
+    <Position X="1" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAQAAAgBAAAAAAAAAAAIAAAAAAAAAEIAA=</HashCode>
+      <FileName>MAP_TCP.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLeftTopDlg" Collapsed="true">
+    <Position X="3" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBQEEBCAAECACgIFAAAAAKAAAAMAAgBBAAAAAAAAA=</HashCode>
+      <FileName>CLeftTopDlg.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMFRModeSelectDlg" Collapsed="true">
+    <Position X="4.75" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CBABSAUAAAoAAAAAEFAAAAAAAAAAqAAAAAAAAAAABAA=</HashCode>
+      <FileName>CMFRModeSelectDlg.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PacketParser" Collapsed="true">
+    <Position X="8.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PacketParser.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CAboutDlg" Collapsed="true">
+    <Position X="13.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SAMtestDlg.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRightPaneDlg" Collapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAEAAAYAAAAAABAAAAAAACCAAgEAAAAAAAAEIAA=</HashCode>
+      <FileName>CRightPaneDlg.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSAMtestDlg" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="2" />
+    <NestedTypes>
+      <Enum Name="CSAMtestDlg::__unnamed_enum_0431_1" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SAMtestDlg.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="CSAMtestDlg::__unnamed_enum_0431_2" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SAMtestDlg.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>EACBAAkAAAAAAwAAAJAIAgAAAAAAAIQEAIAAEAAQACQ=</HashCode>
+      <FileName>SAMtestDlg.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="LCStatus" Collapsed="true">
+    <Position X="5.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>LCStatus.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LSStatus" Collapsed="true">
+    <Position X="7" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAIAAAAAAAAAAAAAAAAABAAgA=</HashCode>
+      <FileName>LSStatus.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="MissileStatus" Collapsed="true">
+    <Position X="10.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAgQAAAAAIAAAgAAAAQAAAAAAAABAAgA=</HashCode>
+      <FileName>MissileStatus.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="RadarStatus" Collapsed="true">
+    <Position X="8.75" Y="4.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="RadarStatus::Mode" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>RadarStatus.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAIAAAAAAAAAAAAAAAAABAAgA=</HashCode>
+      <FileName>RadarStatus.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="TargetStatus" Collapsed="true">
+    <Position X="12.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAgQAAAAAIAAAAAAAAQAAAAAAAABAAgA=</HashCode>
+      <FileName>TargetStatus.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="RadarModeChangeAck" Collapsed="true">
+    <Position X="7" Y="7.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAIAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>AckMessageTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LSModeChangeAck" Collapsed="true">
+    <Position X="5" Y="7.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAACQ=</HashCode>
+      <FileName>AckMessageTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="MissileLaunchAck" Collapsed="true">
+    <Position X="11.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQ=</HashCode>
+      <FileName>AckMessageTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LSMoveAck" Collapsed="true">
+    <Position X="9.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQ=</HashCode>
+      <FileName>AckMessageTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Pos2D" Collapsed="true">
+    <Position X="9.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
+      <FileName>MessageCommon.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="StatusHeader" Collapsed="true">
+    <Position X="5.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAIAAAAAAAAAAAAAAAAADAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>ReceiveMessageTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ParsedStatusResponse" Collapsed="true">
+    <Position X="7" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAQQAAAAAAAAAAAACAAAAAQAA=</HashCode>
+      <FileName>ReceiveMessageTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="StatusRequest" Collapsed="true">
+    <Position X="12.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SendMessageTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="RadarModeChange" Collapsed="true">
+    <Position X="5" Y="6.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAIAAAAAAAAAABAAAAAoAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SendMessageTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LSModeChange" Collapsed="true">
+    <Position X="7" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>SendMessageTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="MissileLaunch" Collapsed="true">
+    <Position X="8.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>SendMessageTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LSMove" Collapsed="true">
+    <Position X="10.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>SendMessageTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="CommandType" Collapsed="true">
+    <Position X="11.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAgAAAAAAgAAQABgAAAAgCAAgAE=</HashCode>
+      <FileName>MessageCommon.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

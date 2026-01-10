@@ -1,0 +1,36 @@
+\doxysection{Mock\+Missile\+Manager.\+h}
+\hypertarget{MockMissileManager_8h_source}{}\label{MockMissileManager_8h_source}\index{Simulator/Mock/MockMissileManager.h@{Simulator/Mock/MockMissileManager.h}}
+\mbox{\hyperlink{MockMissileManager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MOCK\_MISSILE\_MANAGER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MOCK\_MISSILE\_MANAGER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MissileInfo_8h}{MissileInfo.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MockTargetManager_8h}{MockTargetManager.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MFRSendUDPManager_8h}{MFRSendUDPManager.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMockMissileManager}{MockMissileManager}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00013\ \ \ \ \ std::shared\_ptr<MockTargetManager>\ mock\_target\_manager\_;}
+\DoxyCodeLine{00014\ \ \ \ \ std::shared\_ptr<MFRSendUDPManager>\ mfr\_send\_manager\_;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_flight\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00017\ \ \ \ \ std::thread\ flight\_thread\_;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ last\_missile\_id\_\ =\ 0;}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{structMissileInfo}{MissileInfo}}\ last\_missile\_info\_;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ updateMissileID();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classMockMissileManager}{MockMissileManager}}(std::shared\_ptr<MockTargetManager>\ target\_manager,\ std::shared\_ptr<MFRSendUDPManager>\ mfr\_send\_manager);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMockMissileManager_ada6f725f2072778a440e0d73a474889b}{flightMissile}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structMissileInfo}{MissileInfo}}\ \&\mbox{\hyperlink{structMissileInfo}{MissileInfo}});}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MOCK\_MISSILE\_MANAGER\_H}}
+
+\end{DoxyCode}

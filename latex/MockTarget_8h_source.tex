@@ -1,0 +1,30 @@
+\doxysection{Mock\+Target.\+h}
+\hypertarget{MockTarget_8h_source}{}\label{MockTarget_8h_source}\index{Simulator/Mock/MockTarget.h@{Simulator/Mock/MockTarget.h}}
+\mbox{\hyperlink{MockTarget_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MOCK\_TARGET\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MOCK\_TARGET\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{TargetInfo_8h}{TargetInfo.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MFRSendUDPManager_8h}{MFRSendUDPManager.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMockTarget}{MockTarget}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{classMockTarget}{MockTarget}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTargetInfo}{TargetInfo}}\ \&target\_info,\ std::shared\_ptr<MFRSendUDPManager>\ mfr\_send\_manager);}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{classMockTarget_afd67c3990e18ac4d3798ef8eb4872fdf}{\string~MockTarget}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMockTarget_a45386f46ac61aea02c37601b5f0600fd}{updatePos}}();}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{structTargetInfo}{TargetInfo}}\ target\_info\_;}
+\DoxyCodeLine{00020\ \ \ \ \ std::shared\_ptr<MFRSendUDPManager>\ mfr\_send\_manager\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ sendData();}
+\DoxyCodeLine{00023\ \}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MOCK\_TARGET\_H}}
+
+\end{DoxyCode}

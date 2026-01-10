@@ -1,0 +1,60 @@
+@startuml
+
+class LCManager {
+  - SystemStatus status
+  - mutable std::mutex statusMutex
+  - std::shared_ptr<IStatusSender> consoleSender
+  - std::shared_ptr<IStatusSender> mfrSender
+  - std::shared_ptr<SerialLS> serialLS
+
+  + void run()
+  + void onLCPositionRequest()
+  + void onRadarStatusReceived(RadarStatus)
+  + void onRadarDetectionReceived(RadarDetection)
+  + void onMessage(CommonMessage)
+  + void init(configPath: string, ip: string, port: int)
+  + void initialize(iniPath: string)
+  + void dispatch(CommonMessage)
+  + void handleECCCommand(CommonMessage)
+  + void handleMFRCommand(CommonMessage)
+  + void setConsoleSender(sender: shared_ptr<IStatusSender>)
+  + void setMFRSender(sender: shared_ptr<IStatusSender>)
+  + void withLockedStatus(func: function)
+  + SystemStatus getStatusCopy()
+  + bool hasLSSender()
+  + void sendToLS(packet: vector<byte>)
+  + bool hasConsoleSender()
+  + void sendToConsole(packet: vector<byte>)
+  + void sendStatus()
+  + void printStatus(status: SystemStatus)
+  + void startLSCommandLoop()
+  + void updateStatus(mfr: MFRStatus)
+  + void updateStatus(ls: LSStatus)
+  + void updateStatus(lc: LCStatus)
+  + void updateStatus(missiles: vector<MissileStatus>)
+  + void updateStatus(targets: vector<TargetStatus>)
+  + void sendLCPositionToMFR()
+  + void onLSStatusReceived(ls: LSReport)
+  + long long squaredDistance(a: Pos2D, b: Pos2D)
+  + TargetStatus* findTargetById(targets: vector<TargetStatus>, id: uint)
+  + double calculateDetectionAngle(from: Pos2D, to: Pos2D)
+  + double LaunchAngleCalc()
+  + double DetectionAngleCalc()
+  + string getRadarCommandInput()
+  + bool hasMFRSender()
+  + void sendToMFR(packet: vector<byte>)
+}
+
+LCManager ..|> IReceiverCallback
+LCManager --> IStatusSender : uses
+LCManager --> SerialLS
+LCManager --> SystemStatus
+LCManager --> MFRStatus
+LCManager --> LSStatus
+LCManager --> LCStatus
+LCManager --> MissileStatus
+LCManager --> TargetStatus
+LCManager --> Pos2D
+LCManager --> CommonMessage
+
+@enduml
