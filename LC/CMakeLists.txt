@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 project(LC_Project)
 
-# Set the output directory for the executable
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../bin)
-
 set(CMAKE_CXX_STANDARD 17)
 
 if(BUILD_FOR_PETALINUX)
@@ -63,3 +60,7 @@ add_executable(lc
 # 스레드 라이브러리 연결
 find_package(Threads REQUIRED)
 target_link_libraries(lc Threads::Threads)
+
+# 배포(Install) 규칙
+install(TARGETS lc RUNTIME DESTINATION bin)
+install(DIRECTORY Config/ DESTINATION config/LC FILES_MATCHING PATTERN "*.ini")

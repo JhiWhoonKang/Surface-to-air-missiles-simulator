@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 project(LauncherSystem)
 
-# 실행 파일을 상위 폴더의 bin 디렉토리에 저장
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../bin)
-
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -61,3 +58,7 @@ target_include_directories(launcher PRIVATE
 # 스레드 라이브러리 연결
 find_package(Threads REQUIRED)
 target_link_libraries(launcher Threads::Threads)
+
+# 배포(Install) 규칙
+install(TARGETS launcher RUNTIME DESTINATION bin)
+install(DIRECTORY config/ DESTINATION config/LS FILES_MATCHING PATTERN "*.ini")

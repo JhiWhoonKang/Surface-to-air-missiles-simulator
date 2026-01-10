@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 project(SurfaceToAirWeaponSystem)
 
-# 실행 파일을 상위 폴더의 bin 디렉토리에 저장
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../bin)
-
 # Set the C++ standard
 set(CMAKE_CXX_STANDARD 17)
 
@@ -33,11 +30,11 @@ endif()
 
 # Add include directories
 include_directories(
-    ${CMAKE_SOURCE_DIR}/Simulator
-    ${CMAKE_SOURCE_DIR}/Config
-    ${CMAKE_SOURCE_DIR}/UDPCommunicate
-    ${CMAKE_SOURCE_DIR}/Mock
-    ${CMAKE_SOURCE_DIR}/Mock/info
+    ${CMAKE_CURRENT_SOURCE_DIR}/Simulator
+    ${CMAKE_CURRENT_SOURCE_DIR}/Config
+    ${CMAKE_CURRENT_SOURCE_DIR}/UDPCommunicate
+    ${CMAKE_CURRENT_SOURCE_DIR}/Mock
+    ${CMAKE_CURRENT_SOURCE_DIR}/Mock/info
 )
 
 # Add source files
@@ -71,3 +68,7 @@ add_executable(SurfaceToAirWeaponSystem ${SOURCES} ${HEADERS})
 # Add threading support
 find_package(Threads REQUIRED)
 target_link_libraries(SurfaceToAirWeaponSystem Threads::Threads)
+
+# 배포(Install) 규칙 (이름을 simulator로 변경해서 설치)
+install(TARGETS SurfaceToAirWeaponSystem RUNTIME DESTINATION bin RENAME simulator)
+install(DIRECTORY Config/ DESTINATION config/Simulator FILES_MATCHING PATTERN "*.ini")

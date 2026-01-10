@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 project(MFR)
 
-# 실행 파일을 상위 bin 디렉토리에 저장
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../../bin)
-
 # Set the C++ standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -41,12 +38,12 @@ endif()
 
 # Add include directories
 include_directories(
-    ${CMAKE_SOURCE_DIR}/MFR
-    ${CMAKE_SOURCE_DIR}/info
-    ${CMAKE_SOURCE_DIR}/Logger
-    ${CMAKE_SOURCE_DIR}/Config
-    ${CMAKE_SOURCE_DIR}/CommManager
-    ${CMAKE_SOURCE_DIR}/StepMotorController
+    ${CMAKE_CURRENT_SOURCE_DIR}/MFR
+    ${CMAKE_CURRENT_SOURCE_DIR}/info
+    ${CMAKE_CURRENT_SOURCE_DIR}/Logger
+    ${CMAKE_CURRENT_SOURCE_DIR}/Config
+    ${CMAKE_CURRENT_SOURCE_DIR}/CommManager
+    ${CMAKE_CURRENT_SOURCE_DIR}/StepMotorController
 )
 
 # Add source files
@@ -78,3 +75,7 @@ add_executable(MFR ${SOURCES} ${HEADERS})
 # Add threading support
 find_package(Threads REQUIRED)
 target_link_libraries(MFR Threads::Threads)
+
+# 배포(Install) 규칙
+install(TARGETS MFR RUNTIME DESTINATION bin)
+install(DIRECTORY Config/ DESTINATION config/MFR FILES_MATCHING PATTERN "*.ini")
