@@ -63,15 +63,7 @@ ehthumbs.db
 .DS_Store
 
 # ----------------------------------------------------------------------
-# 5. CMake (사용하는 경우)
-# ----------------------------------------------------------------------
-CMakeFiles/
-CMakeCache.txt
-cmake_install.cmake
-Makefile
-
-# ----------------------------------------------------------------------
-# 6. CMake & Build Output
+# 5. CMake & Build Output
 # ----------------------------------------------------------------------
 # CMake가 생성하는 캐시 및 설정 파일 (In-source build 방지용)
 CMakeCache.txt
@@ -81,6 +73,7 @@ install_manifest.txt
 CTestTestfile.cmake
 CPackConfig.cmake
 CPackSourceConfig.cmake
+Makefile
 
 # Visual Studio가 CMake 프로젝트용으로 만드는 기본 출력 폴더
 out/
@@ -95,3 +88,4 @@ lib/
 build.ninja
 .ninja_deps
 .ninja_log
+
