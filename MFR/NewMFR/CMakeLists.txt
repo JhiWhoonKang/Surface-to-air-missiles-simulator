@@ -38,12 +38,12 @@ endif()
 
 # Add include directories
 include_directories(
-    ${CMAKE_SOURCE_DIR}/MFR
-    ${CMAKE_SOURCE_DIR}/info
-    ${CMAKE_SOURCE_DIR}/Logger
-    ${CMAKE_SOURCE_DIR}/Config
-    ${CMAKE_SOURCE_DIR}/CommManager
-    ${CMAKE_SOURCE_DIR}/StepMotorController
+    ${CMAKE_CURRENT_SOURCE_DIR}/MFR
+    ${CMAKE_CURRENT_SOURCE_DIR}/info
+    ${CMAKE_CURRENT_SOURCE_DIR}/Logger
+    ${CMAKE_CURRENT_SOURCE_DIR}/Config
+    ${CMAKE_CURRENT_SOURCE_DIR}/CommManager
+    ${CMAKE_CURRENT_SOURCE_DIR}/StepMotorController
 )
 
 # Add source files
@@ -75,3 +75,7 @@ add_executable(MFR ${SOURCES} ${HEADERS})
 # Add threading support
 find_package(Threads REQUIRED)
 target_link_libraries(MFR Threads::Threads)
+
+# 배포(Install) 규칙
+install(TARGETS MFR RUNTIME DESTINATION bin)
+install(DIRECTORY Config/ DESTINATION config/MFR FILES_MATCHING PATTERN "*.ini")

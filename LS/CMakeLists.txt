@@ -40,7 +40,6 @@ set(SOURCES
     statusManager/motorManager/LSMotorManager.cpp
 )
 
-# 실행 파일 생성
 add_executable(launcher ${SOURCES})
 
 # include 경로 설정
@@ -55,3 +54,11 @@ target_include_directories(launcher PRIVATE
     ${PROJECT_SOURCE_DIR}/statusManager/motorManager
     ${PROJECT_SOURCE_DIR}/statusManager/motorManager/testMotor
 )
+
+# 스레드 라이브러리 연결
+find_package(Threads REQUIRED)
+target_link_libraries(launcher Threads::Threads)
+
+# 배포(Install) 규칙
+install(TARGETS launcher RUNTIME DESTINATION bin)
+install(DIRECTORY config/ DESTINATION config/LS FILES_MATCHING PATTERN "*.ini")
