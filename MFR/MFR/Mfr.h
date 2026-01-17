@@ -29,6 +29,7 @@ private:
 
     // shared data
 private:
+    std::mutex m_dataMutex;
     std::map<unsigned int, localMockSimData> mockTargets;
     std::unordered_map<unsigned int, localMockSimData> mockMissile;
 

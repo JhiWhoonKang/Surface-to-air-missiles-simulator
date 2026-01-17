@@ -457,6 +457,7 @@ void LCManager::init(const std::string &configPath, const std::string &ip, int p
 
     // ✅ ECC 연결
     auto ecc = std::make_shared<TcpECC>(config.ECCRecvIP, config.ECCRecvPort);
+    std::cout<<config.ECCRecvIP <<"," << config.ECCRecvPort<<"\n";
     ecc->setCallback(this);
     setConsoleSender(ecc);
     ecc->start();

@@ -156,10 +156,12 @@ struct ReqLcInitData
     unsigned int radarId;
 };
 
-struct ModeCahngeData    // 4 + 1 + 1 + 4  = 10 bytes
+struct ModeChangeData    // 4 + 1 + 1 + 4  = 10 bytes
 {
     unsigned int radarId;
     unsigned char modeData;
     unsigned char isPriorityMode;
     unsigned int targetId;
 };
+
+#pragma pack(pop)

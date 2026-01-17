@@ -355,14 +355,29 @@ double Mfr::angleDiff(const double &baseAngle, const double &targetAngle)
 
 void Mfr::parsingSimData(const std::vector<char> &payload)
 {
-    if (payload.size() != sizeof(MockSimData) && payload.size() != sizeof(MockSimData))
+    if (payload.size() != sizeof(MockSimData))
     {
-        // std::cerr << "[Mfr::handleSimDataPayload] SimData 크기 오류. 받은 크기: " << payload.size() << std::endl;
+        std::cerr << "[Mfr::handleSimDataPayload] SimData 크기 오류. 받은 크기: " << payload.size() << std::endl;
         return;
     }
 
+    // std::cout << "DEBUG: 1. Start" << std::endl;
+
+    // if (payload.size() != sizeof(MockSimData)) { return; }
+
+    // MockSimData data;
+    // std::memcpy(&data, payload.data(), sizeof(MockSimData));
+    // std::cout << "DEBUG: 2. memcpy success" << std::endl;
+
+    // localMockSimData localSimData;
+    // localSimData.mockId = data.mockId;
+    
+    // std::cout << "DEBUG: 3. Before decode" << std::endl;
+    // localSimData.mockCoords = decode(data.mockCoords); 
+    // std::cout << "DEBUG: 4. After decode" << std::endl;
+
     MockSimData data;
-    std::memcpy(&data, payload.data(), sizeof(TargetSimData));
+    std::memcpy(&data, payload.data(), sizeof(MockSimData));
 
     localMockSimData localSimData;
     localSimData.mockId = data.mockId;
@@ -380,7 +395,7 @@ void Mfr::parsingSimData(const std::vector<char> &payload)
     else if (localSimData.mockId >= 105001 && localSimData.mockId <= 105999) // 미사일 정보
     {
         Logger::log("Missile Detected! ID: " + std::to_string(localSimData.mockId));
-        addMockMissile(localSimData);
+        // addMockMissile(localSimData);
     }
     else
     {
@@ -489,14 +504,15 @@ void Mfr::addMockTarget(const localMockSimData &target)
     //             ", Angle2: " + std::to_string(target.angle2) +
     //             ", Speed: " + std::to_string(target.speed) +
     //             ", is Hit?: " + (target.isHit ? "true" : "false"));
+    // std::lock_guard<std::mutex> lock(m_dataMutex);
     mockTargets[target.mockId] = target;
 }
 
 void Mfr::addMockMissile(const localMockSimData &missile)
 {
     // std::lock_guard<std::mutex> lock(mockMissileMutex);
-    mockMissile[missile.mockId] = missile;
-    detectedMissile[missile.mockId] = missile;
+    // mockMissile[missile.mockId] = missile;
+    // detectedMissile[missile.mockId] = missile;
 }
 
 // public
