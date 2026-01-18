@@ -16,16 +16,14 @@ ECC_TCP::~ECC_TCP() {
 
 bool ECC_TCP::connect(const char* ip, int port)
 {
-    WSADATA wsaData;
-    if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
+    if (m_sock != INVALID_SOCKET)
     {
-        return false;
+        return true;
     }
 
     m_sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (m_sock == INVALID_SOCKET)
     {
-        WSACleanup();
         return false;
     }
 
@@ -37,7 +35,6 @@ bool ECC_TCP::connect(const char* ip, int port)
     if (::connect(m_sock, reinterpret_cast<sockaddr*>(&serverAddr), sizeof(serverAddr)) == SOCKET_ERROR)
     {
         closesocket(m_sock);
-        WSACleanup();
         return false;
     }
 
@@ -48,11 +45,21 @@ bool ECC_TCP::connect(const char* ip, int port)
       return FALSE;  // �ʱ�ȭ ����
     }
 
-    // Map Connect
-    map_tcp = std::make_unique<MAP_TCP>();
-    if (map_tcp->connect(config.MAPSendIP, config.MAPSendPort))
+    if (map_tcp == nullptr)
     {
-      std::cout << "success Map TCP Connect" << std::endl;
+        map_tcp = std::make_unique<MAP_TCP>();
+
+        // 2. 연결 시도
+        if (map_tcp->connect(config.MAPSendIP, config.MAPSendPort))
+        {
+            std::cout << "success Map TCP Connect" << std::endl;
+        }
+        else
+        {
+            std::cerr << "Map TCP Connect Failed" << std::endl;
+            // 연결 실패 시 객체를 남겨둘지, 지울지 결정 (여기선 지우는 예시)
+            map_tcp.reset();
+        }
     }
 
     return true;
@@ -138,7 +145,8 @@ unsigned __stdcall ECC_TCP::recvThread(void* arg) {
 
             if (self->map_tcp)
             {
-                self->map_tcp->send(reinterpret_cast<const char*>(msgData), msgLen);
+                //self->map_tcp->send(reinterpret_cast<const char*>(msgData), msgLen);
+                self->map_tcp->sendPacket(reinterpret_cast<const char*>(msgData), msgLen);
             }
 
             // 처리한 메시지를 버퍼에서 제거
@@ -163,6 +171,4 @@ void ECC_TCP::stop() {
         CloseHandle(m_hThread);
         m_hThread = nullptr;
     }
-
-    WSACleanup();
 }

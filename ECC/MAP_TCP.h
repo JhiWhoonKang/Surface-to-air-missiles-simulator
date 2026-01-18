@@ -18,6 +18,7 @@ class MAP_TCP {
   // 데이터 전송 함수 추가
   // 성공적으로 전송한 바이트 수 반환, 실패 시 -1 반환
   int send(const char* data, int len);
+  int MAP_TCP::sendPacket(const char* data, int len);
 
  private:
   int m_socket;

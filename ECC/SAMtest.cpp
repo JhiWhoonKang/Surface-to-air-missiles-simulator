@@ -52,6 +52,12 @@ BOOL CSAMtestApp::InitInstance()
 
 	CWinApp::InitInstance();
 
+	WSADATA wsaData;
+	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
+	{
+		AfxMessageBox(_T("Winsock 초기화 실패"));
+		return FALSE;
+	}
 
 	AfxEnableControlContainer();
 
@@ -105,3 +111,9 @@ BOOL CSAMtestApp::InitInstance()
 	return FALSE;
 }
 
+int CSAMtestApp::ExitInstance()
+{
+	WSACleanup();
+
+	return CWinApp::ExitInstance();
+}
