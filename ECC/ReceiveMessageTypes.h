@@ -12,6 +12,7 @@
 // 공통 응답 헤더 (상태전송 메시지용)
 struct StatusHeader {
     CommandType commandType = CommandType::STATUS_RESPONSE;
+    uint32_t packetLength;
     uint8_t num_radar;
     uint8_t num_lc;
     uint8_t num_ls;

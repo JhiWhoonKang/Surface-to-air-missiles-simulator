@@ -85,76 +85,97 @@ BOOL CSAMtestDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	SetWindowPos(NULL, 0, 0, 2000, 1000, SWP_NOMOVE | SWP_NOZORDER);
+	// 1. 화면 꽉 차게 설정 (작업표시줄 제외 전체 화면)
+	CRect rtDesktop;
+	SystemParametersInfo(SPI_GETWORKAREA, 0, &rtDesktop, 0);
+	MoveWindow(&rtDesktop);
+
 	// 클라이언트 영역 크기 구하기
 	CRect rect;
 	GetClientRect(&rect);
 	int width = rect.Width();
 	int height = rect.Height();
 
-	int leftWidth = 400;
-	int rightWidth = 700;
-	int centerWidth = width - leftWidth - rightWidth;
-	int halfHeight = height / 2;
+	// =========================================================
+	// [레이아웃 크기 설정]
+	// =========================================================
 
-	// 왼쪽 위 다이얼로그
+	// ▼▼▼ [수정됨] 좌측 너비를 400 -> 550으로 확장 ▼▼▼
+	int leftWidth = 550;
+
+	int rightWidth = 700;  // 우측 너비 고정
+
+	// 중앙 너비는 남는 공간 자동 계산 (1920 기준 약 670px 남음)
+	int centerWidth = width - leftWidth - rightWidth;
+
+	int halfHeight = height / 2; // 상하 50:50 분할
+
+	// =========================================================
+	// 1. 좌측 (상/하 50%) - 너비가 550으로 늘어남
+	// =========================================================
 	m_leftTop.Create(IDD_LEFT_TOP_DLG, this);
 	m_leftTop.MoveWindow(0, 0, leftWidth, halfHeight);
 	m_leftTop.ShowWindow(SW_SHOW);
 
-	// 왼쪽 아래 다이얼로그
 	m_leftBottom.Create(IDD_LEFT_BOTTOM_DLG, this);
 	m_leftBottom.MoveWindow(0, halfHeight, leftWidth, height - halfHeight);
 	m_leftBottom.ShowWindow(SW_SHOW);
-	
 
-	// 중앙 상단 영역
+
+	// =========================================================
+	// 2. 중앙 (상/하 50%) - 좌측이 늘어난 만큼 너비가 줄어듦
+	// =========================================================
+	// X 시작점은 leftWidth(550)부터 시작
 	m_targetListDlg.Create(IDD_TARGET_LIST_DLG, this);
 	m_targetListDlg.MoveWindow(leftWidth, 0, centerWidth, halfHeight);
 	m_targetListDlg.ShowWindow(SW_SHOW);
 
-	// 중앙 하단
 	m_MockTrackDlg.Create(IDD_MOCK_TRACK, this);
-	m_MockTrackDlg.MoveWindow(leftWidth, halfHeight, centerWidth, height-500);
+	m_MockTrackDlg.MoveWindow(leftWidth, halfHeight, centerWidth, height - halfHeight);
 	m_MockTrackDlg.ShowWindow(SW_SHOW);
 
-	// 오른쪽 패널
-	/*m_rightPane.Create(IDD_RIGHT_PANE_DLG, this);
-	m_rightPane.MoveWindow(leftWidth + centerWidth, 0, rightWidth, height);
-	m_rightPane.ShowWindow(SW_SHOW);*/
-	// 오른쪽 개별 다이얼로그 생성
-	int rightStartX = leftWidth + centerWidth;
 
-	// 1. 발사통제기
+	// =========================================================
+	// 3. 우측 (3단 분리) - 빈틈없이 꽉 채우기 로직 유지
+	// =========================================================
+	int rightStartX = leftWidth + centerWidth; // 시작 X좌표 자동 계산
+
+	int hLaunch = 150; // 발사통제기 높이
+	int hTarget = 385; // 표적정보 높이
+	int hMissile = height - hLaunch - hTarget; // 나머지는 미사일정보가 꽉 채움
+
+	// 3-1. 발사통제기
 	m_launchDlg.Create(IDD_LC_INFO_DLG, this);
-	m_launchDlg.MoveWindow(rightStartX, 0, rightWidth, 150);
+	m_launchDlg.MoveWindow(rightStartX, 0, rightWidth, hLaunch);
 	m_launchDlg.ShowWindow(SW_SHOW);
 
-	// 2. 표적 정보
+	// 3-2. 표적 정보
 	m_targetDlg.Create(IDD_TARGET_INFO_DLG, this);
-	m_targetDlg.MoveWindow(rightStartX, 150, rightWidth, 385);
+	m_targetDlg.MoveWindow(rightStartX, hLaunch, rightWidth, hTarget);
 	m_targetDlg.ShowWindow(SW_SHOW);
 
-	// 3. 미사일 정보
+	// 3-3. 미사일 정보
 	m_missileDlg.Create(IDD_MISSILE_INFO_DLG, this);
-	m_missileDlg.MoveWindow(rightStartX, 150 + 385, rightWidth, 385);
+	m_missileDlg.MoveWindow(rightStartX, hLaunch + hTarget, rightWidth, hMissile);
 	m_missileDlg.ShowWindow(SW_SHOW);
 
-	m_leftTop.SetParentDlg(this); // CLeftTopDlg에게 부모 다이얼로그를 전달
-	m_leftBottom.SetParentDlg(this); // CLeftBottomDlg에게 부모 다이얼로그를 전달
+
+	// [기타 초기화]
+	m_leftTop.SetParentDlg(this);
+	m_leftBottom.SetParentDlg(this);
 
 	ConfigCommon config;
-    if (!loadConfig("ECCconfig.ini", config))
+	if (!loadConfig("ECCconfig.ini", config))
 	{
-        AfxMessageBox(_T("설정 파일을 읽어오는 데 실패했습니다."));
-        return FALSE;  // 초기화 실패
-    }
+		AfxMessageBox(_T("설정 파일을 읽어오는 데 실패했습니다."));
+		return FALSE;
+	}
 	m_tcp = std::make_unique<ECC_TCP>();
 	if (!m_tcp->connect(config.LCSendIP.c_str(), config.LCSendPort))
 	{
 		CString msg;
 		msg.Format(_T("서버 연결 실패\nIP: %S\nPort: %d"),
-				config.LCSendIP.c_str(), config.LCSendPort);
+			config.LCSendIP.c_str(), config.LCSendPort);
 		AfxMessageBox(msg);
 		return FALSE;
 	}
@@ -162,8 +183,7 @@ BOOL CSAMtestDlg::OnInitDialog()
 	m_tcp->registerReceiver(this);
 	m_tcp->startReceiving();
 
-	// 2. 주기적 상태 요청 타이머 시작
-	SetTimer(TIMER_ID_REQUEST, 100, nullptr); // 100ms 주기
+	SetTimer(TIMER_ID_REQUEST, 100, nullptr);
 
 	return TRUE;
 }
@@ -231,7 +251,11 @@ void CSAMtestDlg::SetGoalTargetId(int id)
 
 void CSAMtestDlg::receive(int len, const char* packet)
 {
-	if (len <= 0 || packet == nullptr) return;
+	if (len <= 0 || packet == nullptr)
+	{
+		std::cout<< "[CSAMtestDlg::receive] packet error" << "\n";
+		return;
+	}
 
 	try
 	{
@@ -245,6 +269,7 @@ void CSAMtestDlg::receive(int len, const char* packet)
 				static bool printed = false;
 				if (!printed)
 				{
+					std::cout << "[CSAMtestDlg::receive] printed" << "\n";
 					printed = true;
 				}
 
@@ -256,10 +281,13 @@ void CSAMtestDlg::receive(int len, const char* packet)
 				m_leftBottom.SetTargetList(msg.targetList);
 
 				if (!msg.lcList.empty())
+				{
 					m_launchDlg.SetLCStatus(msg.lcList[0]);
-
+				}
 				if (!msg.missileList.empty())
-					m_missileDlg.SetMissileStatus(msg.missileList[0]);  // ✅ 첫 번째 요소 전달
+				{
+					m_missileDlg.SetMissileStatus(msg.missileList[0]);
+				}
 
 				m_targetDlg.SetTargetList(msg.targetList);
 
@@ -287,13 +315,13 @@ void CSAMtestDlg::receive(int len, const char* packet)
 
 			else
 			{
-				//std::cout << "[수신] ACK or 기타 패킷 수신됨\n";
+				std::cout << "[수신] ACK or 기타 패킷 수신됨\n";
 			}
 			}, parsed);
 	}
 	catch (const std::exception& ex)
 	{
-		//std::cerr << "[에러] 패킷 파싱 실패: " << ex.what() << "\n";
+		std::cerr << "[에러] 패킷 파싱 실패: " << ex.what() << "\n";
 	}
 }
 

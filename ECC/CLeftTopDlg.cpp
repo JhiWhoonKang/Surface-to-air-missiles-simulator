@@ -52,6 +52,7 @@ void CLeftTopDlg::SetParentDlg(CSAMtestDlg* parent)
 
 void CLeftTopDlg::SetRadarList(const std::vector<RadarStatus>& radarList)
 {
+	std::cout << "CLeftTopDlg::SetRadarList" << "\n";
 	m_radarList = radarList;
 	m_comboRadarID.ResetContent();
 

@@ -1,11 +1,39 @@
+#pragma once
 #include "pch.h"
 #include "PacketParser.h"
 #include "Deserializer.h"
+#include <iostream>
+#include <iomanip>
 #include <cstring>
 #include <stdexcept>
 
+static void DebugPrintHex(const char* buffer, size_t length)
+{
+#ifdef _DEBUG // 릴리즈 모드에서는 출력 안 되게 막기
+    const uint8_t* data = reinterpret_cast<const uint8_t*>(buffer);
+
+    std::cout << "[PacketParser::Parse] Received " << length << " bytes:" << std::endl;
+    std::cout << "-----------------------------------------------------" << std::endl;
+
+    for (size_t i = 0; i < length; ++i)
+    {
+        // 1바이트씩 16진수로 출력 (02X 포맷)
+        std::cout << std::hex << std::setw(2) << std::setfill('0')
+            << static_cast<int>(data[i]) << " ";
+
+        // 16바이트마다 줄바꿈
+        if ((i + 1) % 16 == 0) {
+            std::cout << std::endl;
+        }
+    }
+    std::cout << std::dec << std::endl; // 다시 10진수 모드로 복귀
+    std::cout << "-----------------------------------------------------" << std::endl;
+#endif
+}
+
 ParsedPacket PacketParser::Parse(const char* buffer, size_t length)
 {
+    DebugPrintHex(buffer, length);
 
     if (length == 0) {
         throw std::runtime_error("Empty packet buffer");
