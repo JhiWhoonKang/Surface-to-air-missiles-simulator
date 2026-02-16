@@ -105,12 +105,14 @@ unsigned __stdcall ECC_TCP::recvThread(void* arg) {
         {
             if (buffer.size() < 5)
             {
+                std::cout << "buffer.size() < 5  " << "\n";
                 break;  // 최소 헤더(1+4) 미만이면 break
             }
 
             // 싱크 맞추기
             if (buffer[0] != 0x51)
             {
+                std::cout << "buffer[0] != 0x51" << "\n";
                 buffer.erase(buffer.begin());
                 continue;
             }
@@ -123,6 +125,7 @@ unsigned __stdcall ECC_TCP::recvThread(void* arg) {
             // 전체 메시지가 도착하지 않았다면 대기
             if (buffer.size() < totalMsgSize)
             {
+                std::cout << "buffer.size() < totalMsgSize" << "\n";
                 break;
             }             
 
@@ -138,13 +141,22 @@ unsigned __stdcall ECC_TCP::recvThread(void* arg) {
             const uint8_t* msgData = buffer.data();
             size_t msgLen = totalMsgSize;
 
+            std::cout << "[RECV] MsgLen: " << msgLen << " | Data: ";
+            for (size_t i = 0; i < msgLen; ++i) {
+                // 2자리 Hex로 출력 (예: 51 0C 00 ...)
+                printf("%02X ", msgData[i]);
+            }
+            std::cout << "\n";
+
             if (self->m_receiver)
             {
+                std::cout << "self->m_receiver" << "\n";
                 self->m_receiver->receive(msgLen, reinterpret_cast<const char*>(msgData));
             }
 
             if (self->map_tcp)
             {
+                std::cout << "self->map_tc" << "\n";
                 //self->map_tcp->send(reinterpret_cast<const char*>(msgData), msgLen);
                 self->map_tcp->sendPacket(reinterpret_cast<const char*>(msgData), msgLen);
             }
