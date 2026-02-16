@@ -68,12 +68,12 @@ void Mfr::mfrDetectionAlgo()
         for (const auto &[id, target] : localTargets)
         {
             double distance = calcDistance(mfrCoords, target.mockCoords);
-
+            std::cout<<"cur distnace: "<<distance<<"\n";
             if (distance <= limitDetectionRange && !target.isHit)
             {
                 localDetectedTargets[id] = target;
                 targetDistances.emplace_back(id, distance);
-                // Logger::log("Target ID: " + std::to_string(id) + ", Distance: " + std::to_string(distance) + " m, Sppeed: " + std::to_string(target.speed));
+                Logger::log("Target ID: " + std::to_string(id) + ", Distance: " + std::to_string(distance) + " m, Sppeed: " + std::to_string(target.speed));
             }
             else
             {

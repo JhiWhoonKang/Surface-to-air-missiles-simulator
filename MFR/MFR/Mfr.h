@@ -20,7 +20,7 @@ class Mfr : public IReceiver, public std::enable_shared_from_this<Mfr>
     // const data
 private:
     const unsigned int mfrId = 101001;
-    const long long limitDetectionRange = 1000000;
+    const long long limitDetectionRange = 4000000;
     const Pos3D mfrCoords = {7.5481160, 126.9961166, 244.0};
     const double EARTH_RADIUS_M = 6'371'000.0; // 지구 반지름 (m)
     const double SCALE = 1e7;
