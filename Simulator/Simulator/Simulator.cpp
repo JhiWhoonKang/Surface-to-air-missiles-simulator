@@ -88,6 +88,10 @@ void Simulator::start()
 				missile.angle2 = received_dat.degree_xz;
 				mock_missile_manager_->flightMissile(missile);
 			}
+			else
+			{
+				std::this_thread::sleep_for(std::chrono::milliseconds(1));
+			}
 		} });
 	recv_thread_.detach();
 
