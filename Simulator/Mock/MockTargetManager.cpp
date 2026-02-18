@@ -1,5 +1,5 @@
 #include "MockTargetManager.h"
-#include "MessageType.h"
+#include "CommonPacket.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -55,7 +55,7 @@ void MockTargetManager::RaedTargetIni()
 
 				// TargetInfo 객체 생성 및 데이터 설정
 				TargetInfo targetInfo;
-				targetInfo.cmd = recvPacketType::SIM_DATA;
+				targetInfo.cmd = recvPacketType::SIM_MOCK_DATA;
 				targetInfo.id = id;
 				targetInfo.x = x;
 				targetInfo.y = y;

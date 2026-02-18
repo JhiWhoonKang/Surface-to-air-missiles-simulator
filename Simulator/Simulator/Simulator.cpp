@@ -17,6 +17,7 @@
 #include "MissileInfo.h"
 #include "LSRecvUDPManager.h"
 #include "MFRSendUDPManager.h"
+#include "CommonPacket.h"
 
 Simulator::Simulator()
 {

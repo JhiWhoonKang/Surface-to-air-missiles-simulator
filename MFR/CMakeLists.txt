@@ -44,6 +44,7 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/Config
     ${CMAKE_CURRENT_SOURCE_DIR}/CommManager
     ${CMAKE_CURRENT_SOURCE_DIR}/StepMotorController
+    ${CMAKE_CURRENT_SOURCE_DIR}/../Common
 )
 
 # Add source files
@@ -67,6 +68,7 @@ set(HEADERS
     CommManager/MfrLcCommManager.h
     CommManager/MfrSimCommManager.h
     StepMotorController/StepMotorController.h
+    ../Common/CommonPacket.h
 )
 
 # Create the executable

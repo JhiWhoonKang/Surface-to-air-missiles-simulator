@@ -14,6 +14,12 @@ private:
     std::weak_ptr<IReceiver> receiver_; // weak_ptr로 변경
     int sockfd;
     int simPort;
+
+    static uint32_t g_lastSeqID;
+    static uint64_t g_totalPackets;
+    static uint64_t g_integrityFail;
+    static uint64_t g_lossCount;
+
     std::atomic<bool> isRunning_;
     std::thread receiverThread; // 스레드 객체 추가
     std::mutex callbackMutex_; // 스레드 안전을 위한 뮤텍스
@@ -22,7 +28,8 @@ private:
     void processTargetData(const char *buffer, size_t len);
     void processMissileData(const char *buffer, size_t len);
     void runReceiver(); // 실제 수신 작업을 수행할 메서드
-
+    void processBatchPacket(const char* buffer, size_t len);
+    
 public:
     explicit MfrSimCommManager(std::shared_ptr<IReceiver> receiver);
     ~MfrSimCommManager();

@@ -6,6 +6,7 @@
 #include <cstring>
 #include <arpa/inet.h>
 #include <unistd.h>
+#include "CommonPacket.h"
 
 class MFRSendUDPManager
 {
@@ -19,6 +20,7 @@ public:
 
 	bool MFRSocketOpen(const std::string &ip, int port);
 	bool sendData(const char *data, int dataSize);
+	void sendTargetBatch(const std::vector<TargetSimData>& allTargets);
 };
 
 #endif // MFR_SEND_UDP_MANAGER_H

@@ -1,6 +1,6 @@
 #include <iostream>
 #include "MockMissileManager.h"
-#include "MessageType.h"
+#include "CommonPacket.h"
 #include "MissileInfo.h"
 #include "MockMissile.h"
 
@@ -41,7 +41,7 @@ void MockMissileManager::flightMissile(const MissileInfo &MissileInfo)
 
 	// flight_thread동작중인지 체크
 	last_missile_info_ = MissileInfo;
-	last_missile_info_.cmd = recvPacketType::SIM_DATA;
+	last_missile_info_.cmd = recvPacketType::SIM_MOCK_DATA;
 
 	updateMissileID();
 

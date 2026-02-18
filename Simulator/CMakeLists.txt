@@ -35,6 +35,7 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/UDPCommunicate
     ${CMAKE_CURRENT_SOURCE_DIR}/Mock
     ${CMAKE_CURRENT_SOURCE_DIR}/Mock/info
+    ${CMAKE_CURRENT_SOURCE_DIR}/../Common
 )
 
 # Add source files
@@ -60,6 +61,7 @@ set(HEADERS
     Mock/MockMissileManager.h
     Mock/info/MissileInfo.h
     Config/Config.h
+    ../Common/CommonPacket.h
 )
 
 # Create the executable

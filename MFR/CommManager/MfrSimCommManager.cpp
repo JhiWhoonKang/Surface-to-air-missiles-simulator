@@ -1,6 +1,7 @@
 #include "MfrSimCommManager.h"
 #include "PacketProtocol.h"
 #include "logger.h"
+#include "CommonPacket.h"
 
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -17,6 +18,10 @@ namespace
 MfrSimCommManager::MfrSimCommManager(std::shared_ptr<IReceiver> receiver)
     : receiver_(std::move(receiver)), sockfd(-1), simPort(0), isRunning_(false)
 {
+    g_lastSeqID = 0;
+    g_totalPackets = 0;
+    g_integrityFail = 0;
+    g_lossCount = 0;
     initMfrSimCommManager();
 }
 
@@ -123,15 +128,29 @@ void MfrSimCommManager::runReceiver()
 
 void MfrSimCommManager::processReceivedData(const char *buffer, size_t len)
 {
-    auto receiver = receiver_.lock(); // weak_ptr를 통한 안전한 접근
-    if (!receiver)
-    {
+    auto receiver = receiver_.lock();
+    if (!receiver) {
         Logger::log("[MfrSimCommManager] Receiver not available");
         return;
     }
 
+    // 1. [검증 로직] 새로운 프로토콜인지 확인 (헤더 크기 + Magic Number)
+    if (len >= sizeof(PacketHeader))
+    {
+        const PacketHeader* header = reinterpret_cast<const PacketHeader*>(buffer);
+        
+        // 매직 넘버가 맞으면 -> "검증된 배치 패킷"으로 처리
+        if (header->magic == 0xA1B2C3D4) 
+        {
+            processBatchPacket(buffer, len);
+            return; 
+        }
+    }
+
+    // 2. [기존 로직] 매직 넘버가 없으면 기존 방식대로 처리 (미사일 데이터 등)
     if (len == sizeof(uint8_t) + sizeof(TargetSimData))
     {
+        // 구형 단일 표적 패킷 처리 (필요 없다면 삭제 가능)
         processTargetData(buffer, len);
     }
     else if (len == sizeof(uint8_t) + sizeof(MissileSimData))
@@ -140,7 +159,75 @@ void MfrSimCommManager::processReceivedData(const char *buffer, size_t len)
     }
     else
     {
-        Logger::log("[MfrSimCommManager] Invalid packet size: " + std::to_string(len) + " bytes");
+        // Logger::log("[MfrSimCommManager] Unknown packet size: " + std::to_string(len));
+    }
+}
+
+// [신규 추가] 검증 및 배치 처리 함수
+void MfrSimCommManager::processBatchPacket(const char* buffer, size_t len)
+{
+    const PacketHeader* header = reinterpret_cast<const PacketHeader*>(buffer);
+    const char* payloadStart = buffer + sizeof(PacketHeader);
+    size_t payloadLen = len - sizeof(PacketHeader);
+
+    // ---------------------------------------------------------
+    // 1. 무결성 검증 (Integrity Check) - CRC
+    // ---------------------------------------------------------
+    uint32_t calcCRC = calculateCRC32(payloadStart, payloadLen);
+    
+    if (calcCRC != header->payloadCRC)
+    {
+        g_integrityFail++;
+        Logger::log("[Integrity Fail] CRC Mismatch! Packet Dropped.");
+        return; // 데이터가 깨졌으므로 통째로 버림
+    }
+
+    // ---------------------------------------------------------
+    // 2. 패킷 손실 확인 (Sequence Check)
+    // ---------------------------------------------------------
+    if (g_totalPackets > 0)
+    {
+        if (header->seqID != g_lastSeqID + 1)
+        {
+            uint32_t lost = header->seqID - g_lastSeqID - 1;
+            g_lossCount += lost;
+            // Logger::log("[Packet Loss] Missed " + std::to_string(lost) + " packets.");
+        }
+    }
+    g_lastSeqID = header->seqID;
+    g_totalPackets++;
+
+    // ---------------------------------------------------------
+    // 3. 데이터 파싱 및 상위 레이어 전달
+    // ---------------------------------------------------------
+    // 검증이 끝났으니 안심하고 데이터를 꺼냅니다.
+    const TargetSimData* targets = reinterpret_cast<const TargetSimData*>(payloadStart);
+
+    auto receiver = receiver_.lock();
+    if (!receiver) return;
+
+    {
+        std::lock_guard<std::mutex> lock(callbackMutex_);
+
+        // 배치로 들어온 표적들을 하나씩 꺼내서 기존 callback 호출
+        for (uint32_t i = 0; i < header->count; ++i)
+        {
+            // 상위 레이어가 [1 byte Type] + [TargetData] 구조를 원한다면
+            // 여기서 그 구조를 만들어서 던져줘야 함.
+            
+            // 임시 버퍼 생성 (기존 호환성 유지용)
+            std::vector<char> packet;
+            packet.reserve(sizeof(uint8_t) + sizeof(TargetSimData));
+
+            uint8_t type = 1; // 예: Target 데이터 타입 ID (기존 코드의 buffer[0] 값 참조 필요)
+            packet.push_back(type);
+            
+            const char* targetPtr = reinterpret_cast<const char*>(&targets[i]);
+            packet.insert(packet.end(), targetPtr, targetPtr + sizeof(TargetSimData));
+
+            // 기존 콜백 호출 (하나씩 전달)
+            receiver->callBackData(packet);
+        }
     }
 }
 
@@ -169,16 +256,6 @@ void MfrSimCommManager::processMissileData(const char *buffer, size_t len)
     }
 }
 
-void MfrSimCommManager::stopReceiver()
-{
-    isRunning_ = false;
-    if (receiverThread.joinable())
-    {
-        receiverThread.join();
-    }
-    Logger::log("[MfrSimCommManager] Receiver stopped");
-}
-
 void MfrSimCommManager::processTargetData(const char *buffer, size_t len)
 {
     auto receiver = receiver_.lock();
@@ -202,4 +279,14 @@ void MfrSimCommManager::processTargetData(const char *buffer, size_t len)
     {
         Logger::log("[MfrSimCommManager] Error in processTargetData: " + std::string(e.what()));
     }
+}
+
+void MfrSimCommManager::stopReceiver()
+{
+    isRunning_ = false;
+    if (receiverThread.joinable())
+    {
+        receiverThread.join();
+    }
+    Logger::log("[MfrSimCommManager] Receiver stopped");
 }

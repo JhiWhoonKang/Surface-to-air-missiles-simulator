@@ -2,11 +2,6 @@
 #include <cstdint>
 #pragma pack(push, 1)
 
-struct PacketHeader 
-{
-    unsigned char cmdType;
-};
-
 struct EncodedPos2D 
 {
     long long latitude;
@@ -107,15 +102,6 @@ struct MfrToLcTargetInfo    // 4 + (8*3) + 4 + 8 + 8 + 1 + 1 = 50 bytes
     unsigned long long firstDetectionTime;
     unsigned char prioirty;
     bool isHit;
-};
-
-
-enum recvPacketType : uint8_t
-{
-    SIM_MOCK_DATA = 0x01,
-    STATUS_REQ = 0x11,
-    MODE_CHANGE = 0x12,
-    LC_INIT_RES = 0x13
 };
 
 enum sendPacketType : uint8_t 
